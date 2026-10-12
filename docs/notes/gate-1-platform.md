@@ -116,3 +116,12 @@ Sequence, all on app 2030b86b…:
   p50 411. → Pagination added (release 0.1.1) and the run repeats.
 - Full backup with the dataset: 155,844 bytes in 2.0 s. `Settings → Restore` of the pre-scale backup (247 rows):
   668 ms, invoices back from 1,024 to 24, everyone signed out as designed.
+
+## 2026-10-12 13:00–13:14 UTC — scale run repeated on 0.1.1 (paginated lists)
+
+- Load again: 1,000 invoices + 2,000 payments through the forms, 605 s, 0 failures.
+- Latency with the dataset (same method): /: p50 510 ms · p95 615 ms · max 971 ms (n=100);/invoices: p50 632 ms · p95 802 ms · max 1031 ms (n=100);/healthz: p50 411 ms · p95 544 ms · max 614 ms (n=100)
+- Database size: 9.48 MB with the sample data (24 invoices) → **12.63 MB with 1,024 invoices, 3,072 lines, 2,024
+  payments** → ≈3.1 KB per invoice with its lines and two payments. The 1 GB pack therefore holds on the order of
+  300,000 invoices; the limit a small business hits first is the lists, not the storage.
+- Full backup with the dataset: 155,388 bytes in 2.2 s; restore of the pre-scale backup (248 rows): 714 ms; size back to 9.49 MB.
