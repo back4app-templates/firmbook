@@ -16,9 +16,9 @@ let r = await req('/setup'); if (r.status !== 200) throw new Error(`setup page: 
 r = await req('/setup', { method: 'POST', body: { _once: once(r.text), secret: SECRET, ...owner } });
 if (r.status !== 200) throw new Error(`setup failed: ${r.status} ${r.text.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').slice(0, 200)}`);
 const codes = r.text.match(/[0-9a-f]{6}-[0-9a-f]{6}/g);
-await post('/settings/company', { company_name: 'Juniper Lane Design Co.', company_address: '210 Market Street, Suite 4\nBurlington, VT 05401', company_email: 'hello@juniperlane.example', company_phone: '(802) 555-0142', invoice_footer: 'Payment is due within 14 days. Thank you for working with us.', timezone: 'America/New_York', currency_symbol: '$' }, '/settings');
+await post('/settings/company', { company_name: 'ACME Design Co.', company_address: '210 Market Street, Suite 4\nBurlington, VT 05401', company_email: 'hello@acme.example', company_phone: '(802) 555-0142', invoice_footer: 'Payment is due within 14 days. Thank you for working with us.', timezone: 'America/New_York', currency_symbol: '$' }, '/settings');
 await post('/settings/tax', { tax_label: 'Sales tax', tax_rate: '6', tax_inclusive: '0', invoice_prefix: 'INV' }, '/settings');
-const demo = { email: 'demo@juniperlane.example', password: 'juniper-demo-2026', name: 'Demo Visitor' }, staff = { email: 'staff@juniperlane.example', password: creds.live?.staff?.password || pw(), name: 'Sam Staff' };
+const demo = { email: 'demo@acme.example', password: 'acme-demo-2026', name: 'Demo Visitor' }, staff = { email: 'staff@acme.example', password: creds.live?.staff?.password || pw(), name: 'Sam Staff' };
 await post('/settings/users', { ...demo, role: 'demo' }, '/settings'); await post('/settings/users', { ...staff, role: 'staff' }, '/settings');
 r = await post('/settings/sample/add', {}, '/settings');
 const home = await req('/'); const ok = home.status === 200 && home.text.includes('Overdue invoices (');

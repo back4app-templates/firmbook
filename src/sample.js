@@ -3,11 +3,11 @@ import { addDays } from './money.js';
 import { audit } from './db.js';
 import { computeLines, issueInvoice, recordPayment } from './ledger.js';
 
-const CONTACTS = [['Harbor Lane Bakery', 'orders@harborlane.example', '12 Pier St, Portland, ME'], ['Juniper & Co. Design', 'hello@juniperco.example', '88 Elm Ave, Austin, TX'],
-  ['Northwind Dental', 'office@northwinddental.example', '400 Lake Rd, Madison, WI'], ['Cobalt Fitness Studio', 'team@cobaltfit.example', '9 Bay View, San Diego, CA'],
-  ['Maple Street Books', 'maple@books.example', '21 Maple St, Burlington, VT'], ['Riverside Vet Clinic', 'care@riversidevet.example', '5 Mill Ln, Boise, ID']];
-const SUPPLIERS = [['Summit Web Hosting', 'expense', 'Software'], ['Cedar Office Supply', 'expense', 'Office'], ['Pine County Insurance', 'expense', 'Insurance'],
-  ['Bluebird Accounting', 'expense', 'Professional fees'], ['Metro Utilities', 'expense', 'Utilities']];
+const CONTACTS = [['Acme Bakery', 'orders@acme-bakery.example', '12 Pier St, Portland, ME'], ['Acme Design Partners', 'hello@acme-design.example', '88 Elm Ave, Austin, TX'],
+  ['Acme Dental Clinic', 'office@acme-dental.example', '400 Lake Rd, Madison, WI'], ['Acme Fitness Studio', 'team@acme-fitness.example', '9 Bay View, San Diego, CA'],
+  ['Acme Books', 'shop@acme-books.example', '21 Maple St, Burlington, VT'], ['Acme Vet Clinic', 'care@acme-vet.example', '5 Mill Ln, Boise, ID']];
+const SUPPLIERS = [['Acme Web Hosting', 'expense', 'Software'], ['Acme Office Supply', 'expense', 'Office'], ['Acme Insurance', 'expense', 'Insurance'],
+  ['Acme Accounting', 'expense', 'Professional fees'], ['Acme Utilities', 'expense', 'Utilities']];
 const SERVICES = [['Website maintenance — monthly', 15000], ['Logo refresh', 65000], ['Consulting hour', 12000], ['Landing page', 180000], ['Newsletter template', 45000], ['Photo editing (batch of 20)', 24000]];
 
 function rng(seed) { let s = seed >>> 0; return () => ((s = (s * 1664525 + 1013904223) >>> 0) / 2 ** 32); }
